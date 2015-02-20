@@ -1,0 +1,16 @@
+hello:
+  method: GET
+  patterns:
+    - request:
+        params:
+          name: "Tom"
+      response:
+        body: "Hello, Tom!"
+    - request:
+        params:
+          name: "Bob"
+      response:
+        body: "Who are you? I don't know that name"
+
+# curl http://localhost/hello?name=Tom
+# curl http://localhost/hello?name=Bob

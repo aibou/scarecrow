@@ -1,0 +1,16 @@
+api.users:
+  method: GET
+  patterns:
+    - request:
+        params:
+          name: "Tom"
+      response:
+        body: "You are Tom!"
+    - request:
+        params:
+          name: "Bob"
+      response:
+        body: "Bob is gone."
+
+# curl http://localhost:7874/api/users?name=Tom
+# curl http://localhost:7874/api/users?name=Bob

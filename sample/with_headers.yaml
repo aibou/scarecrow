@@ -1,0 +1,16 @@
+auth:
+  method: GET
+  patterns:
+    - request:
+        headers:
+          authorization: OAuth aabbccdd
+      response:
+        body: "Token is valid."
+    - request:
+        headers:
+          authorization: OAuth eeff0011
+      response:
+        body: "Who are you? I don't know that name"
+
+# curl http://localhost/auth -H "Authorization: OAuth aabbccdd"
+# curl http://localhost/auth -H "Authorization: OAuth eeff0011"
