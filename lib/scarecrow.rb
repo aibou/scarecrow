@@ -16,5 +16,3 @@ module Scarecrow
     app.run! port: 7874
   end
 end
-
-Scarecrow.run
