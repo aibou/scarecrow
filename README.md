@@ -1,4 +1,4 @@
-# Scarecrow
+# Scarecrow [![Build Status](https://travis-ci.org/aibou/scarecrow.svg?branch=master)](https://travis-ci.org/aibou/scarecrow)
 
 TODO: Write a gem description
 
