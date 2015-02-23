@@ -5,13 +5,35 @@ require 'scarecrow/version'
 module Scarecrow
   def self.run
     # eat yaml file
+    hash = {
+      "hello" => {
+        "method" => "GET",
+        "patterns" => [
+          {
+            "request" => {
+            },
+            "response" => {
+              "body" => "hello, Tom!"
+            }
+          }
+        ]
+      }
+    }
+    
+    # validate hash
+
+    # setup definition
     app = Sinatra.new do
-      get '/' do
-        'hello, world'
+      hash.each_key do |path|
+        # switch methods from hash[path][method]
+        get File.join("/", path) do
+          hash[path]["patterns"].each do |pattern|
+            return pattern["response"]["body"]
+          end
+        end
       end
     end
 
-    # setup definition
     # run sinatra
     app.run! port: 7874
   end
