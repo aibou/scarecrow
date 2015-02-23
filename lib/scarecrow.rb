@@ -28,7 +28,9 @@ module Scarecrow
         # switch methods from hash[path][method]
         get File.join("/", path) do
           hash[path]["patterns"].each do |pattern|
-            return pattern["response"]["body"]
+            status pattern["response"]["status"] || 200
+            headers pattern["response"]["header"] || {}
+            return body pattern["response"]["body"]
           end
         end
       end
