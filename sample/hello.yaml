@@ -12,5 +12,7 @@ hello:
       response:
         body: "Who are you? I don't know that name"
 
-# curl http://localhost/hello?name=Tom
-# curl http://localhost/hello?name=Bob
+# curl http://localhost:7874/hello?name=Tom
+#=> Hello, Tom!
+# curl http://localhost:7874/hello?name=Bob
+#=> Who are you? I don't know that name

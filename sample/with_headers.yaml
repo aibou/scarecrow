@@ -5,12 +5,18 @@ auth:
         headers:
           authorization: OAuth aabbccdd
       response:
+        status: 200
         body: "Token is valid."
     - request:
         headers:
           authorization: OAuth eeff0011
       response:
-        body: "Who are you? I don't know that name"
+        status: 401
+        headers:
+          www-authenticate: 'OAuth realm="dummy authorization"'
+        body: "Token has been expired."
 
-# curl http://localhost/auth -H "Authorization: OAuth aabbccdd"
-# curl http://localhost/auth -H "Authorization: OAuth eeff0011"
+# curl http://localhost:7874/auth -H "Authorization: OAuth aabbccdd"
+#=> Token is valid.
+# curl http://localhost:7874/auth -H "Authorization: OAuth eeff0011"
+#=> Token has been expired.

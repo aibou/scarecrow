@@ -13,4 +13,6 @@ api.users:
         body: "Bob is gone."
 
 # curl http://localhost:7874/api/users?name=Tom
+#=> You are Tom!
 # curl http://localhost:7874/api/users?name=Bob
+#=> Bob is gone.
