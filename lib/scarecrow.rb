@@ -28,10 +28,18 @@ module Scarecrow
         # switch methods from hash[path][method]
         get File.join("/", path) do
           hash[path]["patterns"].each do |pattern|
-            status pattern["response"]["status"] || 200
-            headers pattern["response"]["header"] || {}
-            return body pattern["response"]["body"]
+            conds = []
+            if conds.all?
+              status pattern["response"]["status"] || 200
+              headers pattern["response"]["header"] || {}
+              return body pattern["response"]["body"]
+            end
           end
+
+          # default
+          status 404
+          headers({ "X-Scarecrow-Status" => "No such pattern" })
+          body "No such pattern"
         end
       end
     end
