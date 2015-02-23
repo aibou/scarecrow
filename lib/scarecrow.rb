@@ -11,9 +11,22 @@ module Scarecrow
         "patterns" => [
           {
             "request" => {
+              "params" => {
+                "name" => "Tom"
+              }
             },
             "response" => {
               "body" => "hello, Tom!"
+            }
+          },
+          {
+            "request" => {
+              "params" => {
+                "name" => "Bob"
+              }
+            },
+            "response" => {
+              "body" => "Who are you? I don't know such name"
             }
           }
         ]
@@ -29,10 +42,19 @@ module Scarecrow
         get File.join("/", path) do
           hash[path]["patterns"].each do |pattern|
             conds = []
+
+            pattern["request"]["params"].each do |name, value|
+              conds << params[name].eql?(value)
+            end unless pattern["request"]["params"].nil?
+
+            pattern["request"]["headers"].each do |name, value|
+              conds << request.env["HTTP_#{name.upcase}"].eql?(value)
+            end unless pattern["request"]["headers"].nil?
+            
             if conds.all?
               status pattern["response"]["status"] || 200
               headers pattern["response"]["header"] || {}
-              return body pattern["response"]["body"]
+              return body pattern["response"]["body"] || ""
             end
           end
 
