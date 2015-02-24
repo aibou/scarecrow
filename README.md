@@ -1,4 +1,4 @@
-# Scarecrow [![Build Status](https://travis-ci.org/aibou/scarecrow.svg?branch=master)](https://travis-ci.org/aibou/scarecrow)
+# Scarecrow [![Build Status](https://travis-ci.org/aibou/scarecrow.svg?branch=master)](https://travis-ci.org/aibou/scarecrow) [![Code Climate](https://codeclimate.com/github/aibou/scarecrow/badges/gpa.svg)](https://codeclimate.com/github/aibou/scarecrow) [![Test Coverage](https://codeclimate.com/github/aibou/scarecrow/badges/coverage.svg)](https://codeclimate.com/github/aibou/scarecrow)
 
 TODO: Write a gem description
 
