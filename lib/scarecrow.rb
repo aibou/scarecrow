@@ -1,12 +1,12 @@
-require 'sinatra/base'
-
 require 'scarecrow/version'
 require 'scarecrow/server'
 require 'scarecrow/validator'
+require 'scarecrow/parser'
 
 module Scarecrow
   def self.run
     # eat yaml file
+    options = Scarecrow::Parser.parse_option
     hash = {
       "hello" => {
         "method" => "GET",
@@ -37,6 +37,6 @@ module Scarecrow
     
     # validate hash
 
-    Scarecrow::Server.run hash
+    Scarecrow::Server.run hash, options
   end
 end
