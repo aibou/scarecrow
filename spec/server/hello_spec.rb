@@ -7,7 +7,7 @@ describe Scarecrow::Server do
   
   def app
     hash = YAML.load_file 'sample/hello.yaml'
-    Scarecrow::Server.run(hash)
+    Scarecrow::Server.define(hash)
   end
 
   context 'sample/hello.yaml' do

@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 module Scarecrow
   module Server
-    def self.run hash
+    def self.define hash
       app = Sinatra.new
       hash.each_key do |path|
         # switch methods from hash[path][method]

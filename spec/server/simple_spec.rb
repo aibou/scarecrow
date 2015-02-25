@@ -13,7 +13,7 @@ describe Scarecrow::Server do
     - response:
         body: "Hello, world!"
 EOYAML
-    Scarecrow::Server.run(hash)
+    Scarecrow::Server.define(hash)
   end
   
   context 'when only define / and it returns "Hello, world!"' do
