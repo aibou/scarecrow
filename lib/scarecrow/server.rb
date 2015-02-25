@@ -9,15 +9,17 @@ module Scarecrow
         app.get File.join("/", path) do
           hash[path]["patterns"].each do |pattern|
             conds = []
-            
-            pattern["request"]["params"].each do |name, value|
-              conds << params[name].eql?(value)
-            end unless pattern["request"]["params"].nil?
-            
-            pattern["request"]["headers"].each do |name, value|
-              conds << request.env["HTTP_#{name.upcase}"].eql?(value)
-            end unless pattern["request"]["headers"].nil?
+
+            unless pattern["request"].nil?
+              pattern["request"]["params"].each do |name, value|
+                conds << params[name].eql?(value)
+              end unless pattern["request"]["params"].nil?
               
+              pattern["request"]["headers"].each do |name, value|
+                conds << request.env["HTTP_#{name.upcase}"].eql?(value)
+              end unless pattern["request"]["headers"].nil?
+            end
+            
             if conds.all?
               status pattern["response"]["status"] || 200
               headers pattern["response"]["header"] || {}
