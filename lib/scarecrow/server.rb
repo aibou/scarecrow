@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 module Scarecrow
   module Server
-    def self.run hash, options = {}
+    def self.run hash
       app = Sinatra.new
       hash.each_key do |path|
         # switch methods from hash[path][method]
@@ -31,8 +31,7 @@ module Scarecrow
           body "No such pattern"
         end
       end
-      # run sinatra
-      app.run! port: options[:port] || 7874
+      app
     end
   end
 end

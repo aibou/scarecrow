@@ -14,6 +14,6 @@ module Scarecrow
     hash = YAML.load_file options[:file_name]
     # validate hash
 
-    Scarecrow::Server.run hash, options
+    Scarecrow::Server.run(hash).run! port: options[:port] || 7874
   end
 end
