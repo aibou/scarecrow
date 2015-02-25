@@ -22,5 +22,12 @@ describe Scarecrow::Server do
       it { should be_ok }
       its(:body) { should eq 'Who are you? I don\'t know that name' }
     end
+
+    context 'GET /hello?name=Aaron' do
+      subject { get '/hello', name: 'Aaron'; last_response }
+      it { should be_not_found }
+      its(:headers) { should include({'X-Scarecrow-Status' => 'No such pattern'}) }
+      its(:body) { should eq 'No such pattern' }
+    end
   end
 end
