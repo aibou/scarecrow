@@ -16,7 +16,7 @@ EOYAML
     Scarecrow::Server.define(hash)
   end
   
-  context 'when only define POST / and it returns "Hello, world!"' do
+  context 'define "POST /" and it returns "Hello, world!"' do
     context 'POST /' do
       subject { post '/'; last_response }
       it { should be_ok }
