@@ -1,7 +1,7 @@
 require 'scarecrow/version'
 require 'scarecrow/server'
 require 'scarecrow/formatter'
-require 'scarecrow/parser'
+require 'scarecrow/option_parser'
 
 require 'yaml'
 require 'hashie'
@@ -12,7 +12,7 @@ end
 
 module Scarecrow
   def self.run
-    options = Scarecrow::Parser.parse_option
+    options = Scarecrow::OptionParser.parse_option
     options[:file_name] ||= 'scarecrow.yml'
         
     raise FileNotFoundException.new "#{options[:file_name]} is not found." unless File.exists? options[:file_name]

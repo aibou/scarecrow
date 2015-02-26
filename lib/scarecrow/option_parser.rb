@@ -1,10 +1,10 @@
 require 'optparse'
 
 module Scarecrow
-  module Parser
+  module OptionParser
     def self.parse_option
       options = {}
-      opts = OptionParser.new
+      opts = ::OptionParser.new
       
       opts.on '-f', '--file FILE_NAME', 'To load' do |file_name|
         options[:file_name] = file_name
