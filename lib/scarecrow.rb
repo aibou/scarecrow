@@ -1,9 +1,14 @@
-require 'yaml'
-
 require 'scarecrow/version'
 require 'scarecrow/server'
-require 'scarecrow/validator'
+require 'scarecrow/formatter'
 require 'scarecrow/parser'
+
+require 'yaml'
+require 'hashie'
+
+class Hash
+  include Hashie::Extensions::SymbolizeKeys
+end
 
 module Scarecrow
   def self.run
