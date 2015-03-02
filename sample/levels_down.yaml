@@ -1,6 +1,5 @@
 api.users:
-  method: GET
-  patterns:
+  GET:
     - request:
         params:
           name: "Tom"

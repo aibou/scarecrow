@@ -8,8 +8,7 @@ describe Scarecrow::Server do
   def app
     hash = YAML.load <<EOYAML
 "/":
-  method: GET
-  patterns:
+  GET:
     - request:
         headers:
           authorization: OAuth abcdef00token

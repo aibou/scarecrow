@@ -8,8 +8,7 @@ describe Scarecrow::Server do
   def app
     hash = YAML.load <<EOYAML
 "/":
-  method: POST
-  patterns:
+  POST:
     - response:
         body: "Hello, world!"
 EOYAML

@@ -1,6 +1,5 @@
 auth:
-  method: GET
-  patterns:
+  GET:
     - request:
         headers:
           authorization: OAuth aabbccdd

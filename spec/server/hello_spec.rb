@@ -4,9 +4,24 @@ require 'rack/test'
 
 describe Scarecrow::Server do
   include Rack::Test::Methods
-  
+
+
+
   def app
-    hash = YAML.load_file 'sample/hello.yaml'
+    hash = YAML.load <<EOYAML
+hello:
+  GET:
+    - request:
+        params:
+          name: "Tom"
+      response:
+        body: "Hello, Tom!"
+    - request:
+        params:
+          name: "Bob"
+      response:
+        body: "Who are you? I don't know that name"
+EOYAML
     Scarecrow::Server.define(hash)
   end
 

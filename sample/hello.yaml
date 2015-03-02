@@ -1,6 +1,5 @@
 hello:
-  method: GET
-  patterns:
+  GET:
     - request:
         params:
           name: "Tom"
