@@ -33,7 +33,7 @@ EOYAML
       end
 
       context 'with invalid token' do
-        subject { get('/', header('Authorization', 'OAuth xxxxxx00token')); p last_response.headers; last_response }
+        subject { get('/', header('Authorization', 'OAuth xxxxxx00token')); last_response }
         it { should be_unauthorized }
         its(:body) { should eq 'invalid token' }
       end
