@@ -1,0 +1,9 @@
+/:
+  GET:
+    - response:
+        body:
+          name: john
+          age: 20
+
+# curl http://localhost:7874/
+#=> {"name":"john","age":20}

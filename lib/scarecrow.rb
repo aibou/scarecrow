@@ -3,6 +3,7 @@ require 'scarecrow/server'
 require 'scarecrow/formatter'
 require 'scarecrow/option_parser'
 
+require 'json'
 require 'yaml'
 require 'hashie'
 

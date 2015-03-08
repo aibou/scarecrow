@@ -13,6 +13,11 @@ module Scarecrow
             pattern[:request][:params] ||= {}
             pattern[:request][:headers] ||= {}
             pattern[:response] ||= {}
+            if pattern[:response][:body].is_a? Hash
+              pattern[:response][:headers] ||= {}
+              pattern[:response][:headers]['Content-Type'] = 'application/json'
+              pattern[:response][:body] = pattern[:response][:body].to_json
+            end
             pattern
           end
           formatted[path][method.downcase.to_sym] = patterns
